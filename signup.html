@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign up — Campus-Voice</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">Campus<span class="flag">-Voice</span></a>
+      <div class="nav-links">
+        <a href="login.html">Log in</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+
+      <form id="signupForm" novalidate>
+        <h1>Create your account</h1>
+        <p class="sub">Use the details on your student ID.</p>
+        <div id="signupMsg" class="form-msg"></div>
+
+        <div class="field">
+          <label for="suName">Full name</label>
+          <input type="text" id="suName" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="suMatric">Matric number</label>
+          <input type="text" id="suMatric" placeholder="e.g. CS/ND/23/0142" required>
+        </div>
+        <div class="field">
+          <label for="suEmail">Email address</label>
+          <input type="email" id="suEmail" autocomplete="email" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="suPassword">Password</label>
+            <input type="password" id="suPassword" autocomplete="new-password" required>
+          </div>
+          <div class="field">
+            <label for="suConfirm">Confirm password</label>
+            <input type="password" id="suConfirm" autocomplete="new-password" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+      </form>
+
+      <div id="verifyCard" class="hidden">
+        <div class="admin-badge" style="background:var(--green-tint);color:var(--green);">Account created</div>
+        <h1>You're all set</h1>
+        <p class="sub">Your account (<strong id="verifyEmailLabel"></strong>) is ready — no email confirmation
+          needed here. Log in whenever you're ready.</p>
+        <a href="login.html" class="btn btn-primary btn-block">Go to log in</a>
+      </div>
+
+      <p class="auth-foot">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
