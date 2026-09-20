@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Portal — Campus-Voice</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-body">
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">Campus<span class="flag">-Voice</span></a>
+      <div class="nav-links">
+        <span class="nav-user"><span class="nav-user-label">Admin portal</span></span>
+        <button id="adminLogoutBtn" class="hidden">Log out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="app-main">
+    <div class="container">
+
+      <section id="adminLoginSection">
+        <div class="auth-wrap" style="min-height:50vh;">
+          <div class="auth-card">
+            <span class="admin-badge">Staff only</span>
+            <h1>Admin login</h1>
+            <p class="sub">Default: <strong>admin</strong> / <strong>admin123</strong> — change it once you're in.</p>
+            <div id="adminLoginMsg" class="form-msg"></div>
+            <form id="adminLoginForm" novalidate>
+              <div class="field">
+                <label for="adminUser">Username</label>
+                <input type="text" id="adminUser" autocomplete="username" required>
+              </div>
+              <div class="field">
+                <label for="adminPass">Password</label>
+                <input type="password" id="adminPass" autocomplete="current-password" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="adminDashSection" class="hidden">
+        <div class="page-head">
+          <div>
+            <h1>All complaints</h1>
+            <p>Every complaint filed by every student, in one place.</p>
+          </div>
+        </div>
+
+        <div id="statsGrid" class="stats-grid"></div>
+
+        <div class="panel">
+          <div class="filter-row">
+            <div class="field">
+              <label for="filterCategory">Category</label>
+              <select id="filterCategory">
+                <option value="all">All categories</option>
+                <option>Academic</option>
+                <option>Hostel</option>
+                <option>Welfare</option>
+                <option>Facility</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filterStatus">Status</label>
+              <select id="filterStatus">
+                <option value="all">All statuses</option>
+                <option>Submitted</option>
+                <option>Approved</option>
+                <option>In Progress</option>
+                <option>Resolved</option>
+                <option>Rejected</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filterUrgency">Urgency</label>
+              <select id="filterUrgency">
+                <option value="all">All urgencies</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="complaints-table">
+              <thead>
+                <tr>
+                  <th>Student</th><th>Category</th><th>Description</th><th>Urgency</th><th>Status</th><th>Filed</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="complaintsTableBody"></tbody>
+            </table>
+          </div>
+          <div id="tableEmpty" class="empty-state hidden">
+            <div class="flag-icon">🏳️</div>
+            <h3>No complaints match these filters</h3>
+            <p>Try widening the category, status, or urgency filters above.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 class="mt-0">Change admin password</h3>
+          <div id="changePassMsg" class="form-msg"></div>
+          <form id="changePassForm" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="cpCurrent">Current password</label>
+                <input type="password" id="cpCurrent" required>
+              </div>
+              <div class="field">
+                <label for="cpNew">New password</label>
+                <input type="password" id="cpNew" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-outline">Update password</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container flex-between">
+      <span>Campus-Voice — admin portal.</span>
+      <a href="index.html">Home</a>
+    </div>
+  </footer>
+
+  <div id="manageModal" class="modal-overlay">
+    <div class="modal" id="manageModalBody"></div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

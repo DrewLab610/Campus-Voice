@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in — Campus-Voice</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">Campus<span class="flag">-Voice</span></a>
+      <div class="nav-links"><a href="signup.html">Sign up</a></div>
+    </div>
+  </nav>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+
+      <form id="loginForm" novalidate>
+        <h1>Welcome back</h1>
+        <p class="sub">Log in to file or track a complaint.</p>
+        <div id="loginMsg" class="form-msg"></div>
+
+        <div class="field">
+          <label for="liEmail">Email address</label>
+          <input type="email" id="liEmail" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="liPassword">Password</label>
+          <input type="password" id="liPassword" autocomplete="current-password" required>
+        </div>
+
+        <div class="link-row" style="display:flex;justify-content:flex-end;margin:-6px 0 16px;font-size:0.85rem;">
+          <a href="#" id="forgotLink">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+      </form>
+
+      <div id="forgotCard" class="hidden">
+        <h1>Reset your password</h1>
+        <p class="sub">Confirm your email and matric number to set a new password.</p>
+        <div id="forgotMsg" class="form-msg"></div>
+        <form id="forgotForm" novalidate>
+          <div class="field">
+            <label for="fpEmail">Email address</label>
+            <input type="email" id="fpEmail" required>
+          </div>
+          <div class="field">
+            <label for="fpMatric">Matric number</label>
+            <input type="text" id="fpMatric" required>
+          </div>
+          <div class="field">
+            <label for="fpNewPassword">New password</label>
+            <input type="password" id="fpNewPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Update password</button>
+        </form>
+        <p class="auth-foot"><a href="#" id="cancelForgot">Back to log in</a></p>
+      </div>
+
+      <p class="auth-foot">New to Campus-Voice? <a href="signup.html">Create an account</a></p>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

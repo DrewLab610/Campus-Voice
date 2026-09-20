@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard — Campus-Voice</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-body">
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="brand">Campus<span class="flag">-Voice</span></a>
+      <div class="nav-links">
+        <span class="nav-user">
+          <span class="nav-user-label">Signed in as </span>
+          <strong id="navUserName">…</strong> · <span id="navUserMatric"></span>
+        </span>
+        <button id="logoutBtn">Log out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="app-main">
+    <div class="container">
+      <div class="page-head">
+        <div>
+          <h1>Your complaints</h1>
+          <p>File a new complaint or check where an existing one stands.</p>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="panel-submit">Submit a complaint</button>
+        <button class="tab-btn" data-tab="panel-my-complaints">My Complaints</button>
+      </div>
+
+      <div id="panel-submit" class="tab-panel active">
+        <div class="panel">
+          <h3 class="mt-0">Describe the issue</h3>
+          <div id="complaintMsg" class="form-msg"></div>
+          <form id="complaintForm" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="cCategory">Category</label>
+                <select id="cCategory" required>
+                  <option value="" disabled selected>Choose a category</option>
+                  <option>Academic</option>
+                  <option>Hostel</option>
+                  <option>Welfare</option>
+                  <option>Facility</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cUrgency">Urgency</label>
+                <select id="cUrgency" required>
+                  <option value="" disabled selected>Choose urgency</option>
+                  <option>Low</option>
+                  <option>Medium</option>
+                  <option>High</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cDescription">Description</label>
+              <textarea id="cDescription" rows="5" placeholder="What happened, where, and since when?" required></textarea>
+            </div>
+            <div class="field">
+              <label for="cAttachment">Attachment (optional)</label>
+              <input type="file" id="cAttachment" accept="image/*,.pdf">
+              <div class="hint" id="fileNameLabel">No file selected</div>
+              <div class="hint">Images and PDFs up to 1.5MB.</div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit complaint</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="panel-my-complaints" class="tab-panel">
+        <div id="complaintList" class="complaint-list"></div>
+        <div id="complaintEmpty" class="empty-state hidden">
+          <div class="flag-icon">🏳️</div>
+          <h3>Nothing filed yet</h3>
+          <p>Complaints you submit will show up here with a live status. Use the "Submit a complaint" tab to file
+            your first one.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container flex-between">
+      <span>Campus-Voice — a student complaint management system.</span>
+      <a href="index.html">Home</a>
+    </div>
+  </footer>
+
+  <div id="historyModal" class="modal-overlay">
+    <div class="modal" id="historyModalBody"></div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
